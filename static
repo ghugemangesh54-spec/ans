@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, source, dest;
+    int graph[10][10];
+
+    printf("Enter number of nodes: ");
+    scanf("%d", &n);
+
+    printf("Enter adjacency matrix (cost):\n");
+    for(i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            scanf("%d", &graph[i][j]);
+        }
+    }
+
+    printf("\nRouting Table:\n");
+    for(i = 0; i < n; i++) {
+        printf("Node %d:\n", i);
+        for(int j = 0; j < n; j++) {
+            if(graph[i][j] != 0 && i != j) {
+                printf("To %d -> Cost: %d\n", j, graph[i][j]);
+            }
+        }
+        printf("\n");
+    }
+
+    printf("Enter source node: ");
+    scanf("%d", &source);
+
+    printf("Enter destination node: ");
+    scanf("%d", &dest);
+
+    if(graph[source][dest] != 0) {
+        printf("Direct route from %d to %d with cost %d\n",
+               source, dest, graph[source][dest]);
+    } else {
+        printf("No direct route found (Static Routing)\n");
+    }
+
+    return 0;
+}
