@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    int n, i;
+
+    printf("Enter number of nodes: ");
+    scanf("%d", &n);
+
+    printf("\n--- Hybrid Topology (Star + Bus) ---\n");
+
+    // Star part (Node 1 as central hub)
+    printf("\nStar Connections:\n");
+    for(i = 2; i <= n; i++) {
+        printf("Node 1 connected to Node %d\n", i);
+    }
+
+    // Bus part
+    printf("\nBus Connections:\n");
+    for(i = 1; i < n; i++) {
+        printf("Node %d connected to Node %d\n", i, i+1);
+    }
+
+    printf("Node %d connected to Node 1\n", n); // closing loop
+
+    return 0;
+}
